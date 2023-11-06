@@ -51,6 +51,7 @@ plot(B_values, sd_values, type = 'b',
 
 # Output
 
+![Local Image](Rplot.png)
 
 
 
