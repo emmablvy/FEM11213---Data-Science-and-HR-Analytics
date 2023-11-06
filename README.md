@@ -15,9 +15,9 @@ Consider the bootstrap loop we discussed:
 Question 1: what is the importance of the number of bootstrap samples? 
 Answer_EL:
 1. Try out for different values of B:
-B = 1000 --> sd [1] 83.78288
-B = 500 --> sd [1] 82.56277
-B = 10 --> sd [1] 78.81825
+B = 1000 --> sd [1] 83.78288  
+B = 500 --> sd [1] 82.56277  
+B = 10 --> sd [1] 78.81825  
 Hence, the lower B is set, the lower the sd received ceteris paribus. Hence, increasing the number of bootstrap samples (here B), the estimates derived become more precise and hence the standard deviation becomes smaller with a larger number of samples.
 Also according to CLT, increasing the number of bootstraps, the distribution should converge towards the true distribution. Therefore, the number should at least be higher than the threshold of N = 30 (?).
 
