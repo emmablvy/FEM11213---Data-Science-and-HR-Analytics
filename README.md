@@ -55,6 +55,7 @@ plot(B_values, sd_values, type = 'b',
 
 ![Local Image](Rplot.png)  
 
+# Comment on output
 As one can see from the plot, the above mentioned is now also visually shown. The higher N, the lower the standard deviation.
 
 
