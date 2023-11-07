@@ -60,6 +60,23 @@ As one can see from the plot, the above mentioned is now also visually shown. Th
 
 
 
-Question 2: what happens when I set replace=FALSE? 
+# Question 2: what happens when I set replace=FALSE? 
 Here you would make this adjustment, see what happens, and then tell me what you learned. 
+# Adjustment of Code:  
+
+B.F <- 1000  
+mub <- c()  
+for (b in 1:1000){  
+  samp_b <- sample.int(nrow(browser_totalspend), replace=FALSE)  
+  mub <- c(mub, mean(browser_totalspend$spend[samp_b]))  
+}  
+sd(mub)  
+
+Setting replace=FALSE, means the sampling is done without replacement. So each element in the sample will be unique.   
+# Result and Interpretation  
+
+Resulting value: [1] 5.443737e-12  
+This is a smaller standard error than when we used replacement. Reason behind this is that the reduced variability is due to the fact that each observation has an equal chance of being included in the resampled dataset, and there is no duplication of observations.  
+
+
 
