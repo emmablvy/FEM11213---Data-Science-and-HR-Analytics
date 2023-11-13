@@ -46,6 +46,15 @@ I first didn't understand the line "reject <- ifelse(pval< (0.1/9)*pvalrank, 2, 
 *Chat GTP: Inflation of Type I Error Rate: The more tests you conduct, the higher the chance of observing at least one statistically significant result, even if there are no true effects. This phenomenon is known as the "multiple testing problem" or "familywise error rate inflation."*
 
 ## 03_Regression
+Command:
+```R
+reg1 <- glm(log(sales) ~ brand + log(price), data=oj)
+View(reg1)
+
+```
+
+
+
 | Variable           | Coefficient | Std. Error |
 |--------------------|-------------|------------|
 | brandminute.maid   | 0.870^***    | (0.013)    |
