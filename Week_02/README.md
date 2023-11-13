@@ -13,7 +13,7 @@ print(pvalrank)
 print(pval)
 print(reject)
 ```
-Result
+Result:
 ```markdown
 ```R
 # R code block
@@ -41,7 +41,7 @@ Comment on output:
 - We keep the hypotheses of "raceblack", "raceother", "racewhite" and "regionS"
 - This is in line with the ranking of the p-values. The smallest four p-values (6, 7, 8, 9) are the same as those that are not rejected.
 
-Comment on code: 
+Comment on code:  
 I first didn't understand the line "reject <- ifelse(pval< (0.1/9)*pvalrank, 2, 1)", especially why exactly we need to divide by 9 because of the increased likelihood of false positives in hypothesis testing. After doing some research, I found the answer. With multiple hypothesis testing, the number of statistical tests conducted automatically increases and hence the probability of obtaining at least one statistically significant result by chance also increases. 
 *Chat GTP: Inflation of Type I Error Rate: The more tests you conduct, the higher the chance of observing at least one statistically significant result, even if there are no true effects. This phenomenon is known as the "multiple testing problem" or "familywise error rate inflation."*
 
