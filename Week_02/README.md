@@ -53,7 +53,7 @@ View(reg1)
 
 ```
 
-
+Output: 
 
 | Variable           | Coefficient | Std. Error |
 |--------------------|-------------|------------|
@@ -71,3 +71,9 @@ View(reg1)
 - $^{*}p<0.1$
 - $^{**}p<0.05$
 - $^{***}p<0.01$
+
+Interpretation:
+Negative coefficient on log(price) <=> negative elasticity 1% increase in price, decreases sales by -3.139%. 
+
+
+
