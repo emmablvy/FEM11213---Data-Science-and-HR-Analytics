@@ -46,39 +46,19 @@ I first didn't understand the line "reject <- ifelse(pval< (0.1/9)*pvalrank, 2, 
 *Chat GTP: Inflation of Type I Error Rate: The more tests you conduct, the higher the chance of observing at least one statistically significant result, even if there are no true effects. This phenomenon is known as the "multiple testing problem" or "familywise error rate inflation."*
 
 ## 03_Regression
+| Variable           | Coefficient | Std. Error |
+|--------------------|-------------|------------|
+| brandminute.maid   | 0.870^***    | (0.013)    |
+| brandtropicana     | 1.530^***    | (0.016)    |
+| log(price)         | -3.139^***   | (0.023)    |
+| Constant           | 10.829^***   | (0.015)    |
 
+**Note:**
+- Observations: 28,947
+- Log Likelihood: -34,378.400
+- Akaike Inf. Crit.: 68,764.800
 
-% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
-% Date and time: Mon, Nov 13, 2023 - 20:30:22
-% Requires LaTeX packages: dcolumn 
-\begin{table}[!htbp] \centering 
-  \caption{Regression Results} 
-  \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & \multicolumn{1}{c}{log(sales)} \\ 
-\hline \\[-1.8ex] 
- brandminute.maid & 0.870^{***} \\ 
-  & (0.013) \\ 
-  & \\ 
- brandtropicana & 1.530^{***} \\ 
-  & (0.016) \\ 
-  & \\ 
- log(price) & -3.139^{***} \\ 
-  & (0.023) \\ 
-  & \\ 
- Constant & 10.829^{***} \\ 
-  & (0.015) \\ 
-  & \\ 
-\hline \\[-1.8ex] 
-Observations & \multicolumn{1}{c}{28,947} \\ 
-Log Likelihood & \multicolumn{1}{c}{-34,378.400} \\ 
-Akaike Inf. Crit. & \multicolumn{1}{c}{68,764.800} \\ 
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{table} 
+*Note:*
+- $^{*}p<0.1$
+- $^{**}p<0.05$
+- $^{***}p<0.01$
