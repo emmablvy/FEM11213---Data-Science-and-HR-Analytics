@@ -138,10 +138,26 @@ return(1 - dev/dev0): This line calculates and returns the R-squared value. R-sq
 
 
 
+```
+# setup the experiment
+n <- nrow(SC) # the number of observations
+K <- 10 # the number of `folds'
+# create a vector of fold memberships (random order) 
+foldid <- rep(1:K,each=ceiling(n/K))[sample(1:n)]
+# create an empty dataframe of results
+Out <- data.frame(full=rep(NA,K))
+# use a for loop to run the experiment
+for(k in 1:K){
+  train <- which(foldid!=k) # train on all but fold `k' ## fit regression on full sample
+  rfull <- glm(FAIL~., data=SC, subset=train, family=binomial)
+  ## get prediction: type=response so we have probabilities
+  predfull <- predict(rfull, newdata=SC[-train,], type="response") ## calculate and log R2
+  Out$full[k] <- R2(y=SC$FAIL[-train], pred=predfull, family="binomial")
+  ## print progress
+  cat(k, " ") }
 
-
-
-
+```
+particions observations >>> trains for each not left out observation >>> tests on left out observation
 
 
 
