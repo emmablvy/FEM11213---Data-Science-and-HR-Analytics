@@ -78,7 +78,9 @@ Negative coefficient on log(price) <=> negative elasticity 1% increase in price,
 
 
 ### Deviance and Likelihood
-1. Define functions for the Deviance and in R.
+### Define functions for the Deviance and in R.
+
+#### Deviance
 Code:
 
 ```
@@ -107,7 +109,7 @@ return( -2*sum( y*log(pred) + (1-y)*log(1-pred) ) ) }
 This line calculates the deviance for a binomial distribution using the log-likelihood formula. It involves the observed values y, the predicted probabilities pred, and their complements. The result is multiplied by -2, as is common in the context of likelihood-based statistics.
 
 
-Now we calculate the R-squared: 
+#### R-squared: 
 ```
 R2 <- function(y, pred, family=c("gaussian","binomial")){ fam <- match.arg(family)
 ```
