@@ -107,8 +107,28 @@ return( -2*sum( y*log(pred) + (1-y)*log(1-pred) ) ) }
 This line calculates the deviance for a binomial distribution using the log-likelihood formula. It involves the observed values y, the predicted probabilities pred, and their complements. The result is multiplied by -2, as is common in the context of likelihood-based statistics.
 
 
+Now we calculate the R-squared: 
+```
+R2 <- function(y, pred, family=c("gaussian","binomial")){ fam <- match.arg(family)
+```
+This line defines a function named R2. 
+It uses match.arg() to ensure that the family argument takes one of the allowed values ("gaussian" or "binomial"). If a different value is provided, it will choose the closest match from the allowed values and assign it to the variable fam.
 
 
+```
+if(fam=="binomial"){
+if(is.factor(y)){ y <- as.numeric(y)>1 }
+}
+```
+if (fam == "binomial") {: This is an if statement that checks if the distributional assumption is "binomial." If it is, it further checks whether the observed values y are a factor. If they are, it converts them to numeric using as.numeric(y) > 1.
+
+```
+dev <- deviance(y, pred, family=fam)
+dev0 <- deviance(y, mean(y), family=fam) return(1-dev/dev0)
+}
+```
+dev <- deviance(y, pred, family = fam): This line calculates the deviance for the provided model predictions and observed values based on the specified distributional assumption (fam).
+dev0 <- deviance(y, mean(y), family = fam): This line calculates the deviance for a null model where the predicted values are the mean of the observed values. This is often used as a baseline for comparison.
 
 
 
