@@ -46,6 +46,7 @@ I first didn't understand the line "reject <- ifelse(pval< (0.1/9)*pvalrank, 2, 
 *Chat GTP: Inflation of Type I Error Rate: The more tests you conduct, the higher the chance of observing at least one statistically significant result, even if there are no true effects. This phenomenon is known as the "multiple testing problem" or "familywise error rate inflation."*
 
 ## 03_Regression
+### Generalized linear regression
 Command:
 ```R
 reg1 <- glm(log(sales) ~ brand + log(price), data=oj)
@@ -74,6 +75,41 @@ Output:
 
 Interpretation:
 Negative coefficient on log(price) <=> negative elasticity 1% increase in price, decreases sales by -3.139%. 
+
+
+### Deviance and Likelihood
+1. Define functions for the Deviance and in R.
+Code:
+
+```
+deviance <- function(y, pred, family=c("gaussian","binomial")){ family <- match.arg(family) #This line defines a function named deviance
+if(family=="gaussian"){
+return( sum( (y-pred)^2 ) ) }else{ #This line calculates the deviance for a Gaussian distribution by summing the squared differences between the observed y values and the predicted pred values.
+if(is.factor(y)) y <- as.numeric(y)>1
+return( -2*sum( y*log(pred) + (1-y)*log(1-pred) ) ) } #This line calculates the deviance for a binomial distribution using the log-likelihood formula. It involves the observed values y, the predicted probabilities pred, and their complements. The result is multiplied by -2, as is common in the context of likelihood-based statistics.
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
