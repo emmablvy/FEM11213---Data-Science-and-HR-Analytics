@@ -82,11 +82,14 @@ Negative coefficient on log(price) <=> negative elasticity 1% increase in price,
 Code:
 
 ```
-deviance <- function(y, pred, family=c("gaussian","binomial")){ family <- match.arg(family) #This line defines a function named deviance
+deviance <- function(y, pred, family=c("gaussian","binomial")){ family <- match.arg(family)
+#This line defines a function named deviance
 if(family=="gaussian"){
-return( sum( (y-pred)^2 ) ) }else{ #This line calculates the deviance for a Gaussian distribution by summing the squared differences between the observed y values and the predicted pred values.
+return( sum( (y-pred)^2 ) ) }else{
+#This line calculates the deviance for a Gaussian distribution by summing the squared differences between the observed y values and the predicted pred values.
 if(is.factor(y)) y <- as.numeric(y)>1
-return( -2*sum( y*log(pred) + (1-y)*log(1-pred) ) ) } #This line calculates the deviance for a binomial distribution using the log-likelihood formula. It involves the observed values y, the predicted probabilities pred, and their complements. The result is multiplied by -2, as is common in the context of likelihood-based statistics.
+return( -2*sum( y*log(pred) + (1-y)*log(1-pred) ) ) }
+#This line calculates the deviance for a binomial distribution using the log-likelihood formula. It involves the observed values y, the predicted probabilities pred, and their complements. The result is multiplied by -2, as is common in the context of likelihood-based statistics.
 }
 ```
 
