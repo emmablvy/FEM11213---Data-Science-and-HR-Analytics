@@ -126,11 +126,13 @@ if (fam == "binomial") {: This is an if statement that checks if the distributio
 
 ```
 dev <- deviance(y, pred, family=fam)
-dev0 <- deviance(y, mean(y), family=fam) return(1-dev/dev0)
+dev0 <- deviance(y, mean(y), family=fam)
+return(1-dev/dev0)
 }
 ```
 dev <- deviance(y, pred, family = fam): This line calculates the deviance for the provided model predictions and observed values based on the specified distributional assumption (fam).
 dev0 <- deviance(y, mean(y), family = fam): This line calculates the deviance for a null model where the predicted values are the mean of the observed values. This is often used as a baseline for comparison.
+return(1 - dev/dev0): This line calculates and returns the R-squared value. R-squared is computed as 1 minus the ratio of the deviance of the model (dev) to the deviance of the null model (dev0). It provides a measure of the proportion of deviance explained by the model.
 
 
 
