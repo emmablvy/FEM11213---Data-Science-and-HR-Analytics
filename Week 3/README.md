@@ -99,6 +99,10 @@ return(1-dev/dev0)
 2. Partition data into k-folds and then run experiment for each fold.
 
 
+## Regularization Paths  
+Video: LASSO Regression https://www.youtube.com/watch?v=NGf0voTMlcs  
+
+<img width="611" alt="Bildschirmfoto 2023-11-21 um 16 22 09" src="https://github.com/emmablvy/FEM11213---Data-Science-and-HR-Analytics/assets/149567541/be08eac3-a983-4ad4-a240-3ecbd47a813d">
 
 
 
