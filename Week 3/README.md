@@ -1,4 +1,4 @@
-## 04 Regularization
+# 04 Regularization
 
 
 ### Theory: K-mean Clustering 
@@ -35,7 +35,7 @@ How to choose K?
 This is the elbow, and the K at this elbow is the optimal K. 
 
 
-## Theory: Cross Validation Video
+### Theory: Cross Validation Video
 https://www.youtube.com/watch?v=fSytzGwwBVw
 Notes: 
 Example - want to use Sypmtoms as Chest pain, Good Blood Circulation, Blocked Arteries, Weight to predict whether someone (new) has a heart disease. 
@@ -118,7 +118,7 @@ boxplot(Out, col="plum", ylab="R2")
 
 ```
 
-## Regularization Paths  
+### Regularization Paths  
 Video: LASSO Regression https://www.youtube.com/watch?v=NGf0voTMlcs  
 
 <img width="611" alt="Bildschirmfoto 2023-11-21 um 16 22 09" src="https://github.com/emmablvy/FEM11213---Data-Science-and-HR-Analytics/assets/149567541/be08eac3-a983-4ad4-a240-3ecbd47a813d">
@@ -127,6 +127,30 @@ Video: LASSO Regression https://www.youtube.com/watch?v=NGf0voTMlcs
 - Lasso makes prediction of size less sensitive
 - Lasso can be applied to complicated models that combine different types of data.
 - LASSO does not choose the model for you, in other words. Instead, it gives you a set of candidate models to choose from.
+
+
+# 05 Classification
+### KNN Algorithm 
+Video: https://www.youtube.com/watch?v=HVXime0nQeI
+Notes: 
+- KNN: Simple way to classify data --> not good for big data
+Case - KNN applied to scatterplot data
+1. Start with dataset with known categories, then cluster that data (i.e. using PCA)
+2. Add a new cell, with unknown category to the PCA plot.
+3. Classify the new cell by looking at the nearest annotated cells. If the K is euql to 1, we only use the nearest neighbor to define the category. 
+If i.e. K= 11 --> look at picture below
+
+<img width="690" alt="Bildschirmfoto 2023-11-21 um 17 03 57" src="https://github.com/emmablvy/FEM11213---Data-Science-and-HR-Analytics/assets/149567541/6fa60550-8564-495e-9f4f-e147582e0597">
+
+
+So what K to use? 
+- Not always clear. Need to try a few values. 
+
+
+
+
+
+
 
 
 
