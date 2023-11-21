@@ -68,10 +68,13 @@ The three steps:
 3. Plot the results.
 
 In R: 
-
-1. Obtain the predicted value, which corresponds to beta-hat*X
-
 ```
+
+SC <-read.csv("Desktop/HS23/Data Science and HR Analytics/Data/semiconductor.csv")
+full <- glm(FAIL ~ ., data=SC, family=binomial) #regress failure on all covariates
+1 - full$deviance/full$null.deviance #compute the R-squared
+
+
 deviance <- function(y, pred, family=c("gaussian","binomial")){
   family <- match.arg(family)
   if(family=="gaussian"){
@@ -81,23 +84,39 @@ deviance <- function(y, pred, family=c("gaussian","binomial")){
     return( -2*sum( y*log(pred) + (1-y)*log(1-pred) ) )
   }
 }
-```
-
-Get the deviance over the null deviance too
-
-```
+## get null devaince too, and return R2
 R2 <- function(y, pred, family=c("gaussian","binomial")){
-fam <- match.arg(family)
-if(fam=="binomial"){
-if(is.factor(y)){ y <- as.numeric(y)>1 }
+  fam <- match.arg(family)
+  if(fam=="binomial"){
+    if(is.factor(y)){ y <- as.numeric(y)>1 }
+  }
+  dev <- deviance(y, pred, family=fam)
+  dev0 <- deviance(y, mean(y), family=fam)
+  return(1-dev/dev0)
 }
-dev <- deviance(y, pred, family=fam)
-dev0 <- deviance(y, mean(y), family=fam)
-return(1-dev/dev0)
+
+# setup the experiment
+n <- nrow(SC) # the number of observations
+K <- 10 # the number of `folds'
+# create a vector of fold memberships (random order)
+foldid <- rep(1:K,each=ceiling(n/K))[sample(1:n)]
+# create an empty dataframe of results
+Out <- data.frame(full=rep(NA,K))
+# use a for loop to run the experiment
+for(k in 1:K){
+  train <- which(foldid!=k) # train on all but fold `k'
+  ## fit regression on full sample
+  rfull <- glm(FAIL~., data=SC, subset=train, family=binomial)
+  ## get prediction: type=response so we have probabilities
+  predfull <- predict(rfull, newdata=SC[-train,], type="response")
+  ## calculate and log R2
+  Out$full[k] <- R2(y=SC$FAIL[-train], pred=predfull, family="binomial")
+  ## print progress
+  cat(k, " ")
+}
+boxplot(Out, col="plum", ylab="R2")
+
 ```
-
-2. Partition data into k-folds and then run experiment for each fold.
-
 
 ## Regularization Paths  
 Video: LASSO Regression https://www.youtube.com/watch?v=NGf0voTMlcs  
