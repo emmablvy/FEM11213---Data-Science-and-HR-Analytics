@@ -35,6 +35,23 @@ How to choose K?
 This is the elbow, and the K at this elbow is the optimal K. 
 
 
+## Theory: Cross Validation Video
+https://www.youtube.com/watch?v=fSytzGwwBVw
+Notes: 
+Example - want to use Sypmtoms as Chest pain, Good Blood Circulation, Blocked Arteries, Weight to predict whether someone (new) has a heart disease. 
+- Need to decide which ML Method is best. i.e. Logistic Regression, K-nearest Neighbors, Support vector Machines etc. --> How to decide which to use? 
+- Cross validation: allows to compare different ML methods and get a sense of how well they'll work in practice.
+- Use data of people who had and didn't had a heart disease and do two things:  (1) Estimate the parameters for the ML methods (also called: Training the algorithm), (2) Evaluate how well the machine learning methods work. --> i.e. need to find if a logistic regression does a good job in predicting new data. Also called: Testing the algorithm. 
+- Hence: (1) train ML methods and (2) test ML methods.
+- Cannot use same data for training and testing! Better to use first 75% for training and last 25% for testing i.e.
+- How to know how to divide up the data? what about using the first 25% instead of last 25%. --> cross validation uses them all, uses the first three blocks to train and last to test. Then in does the same, but takes first, third and fourth for training and second for testing etc. At the end it compares which did the best job.
+- In the case of 4 Blocks, we have a 4 fold cross Validation. In an extreme case you could use each sample individually. In practice the most common is ten --> ten-fold cross validation. 
+
+
+
+
+
+
 
 
 Compute the R-Squared
