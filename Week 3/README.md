@@ -123,7 +123,10 @@ Video: LASSO Regression https://www.youtube.com/watch?v=NGf0voTMlcs
 
 <img width="611" alt="Bildschirmfoto 2023-11-21 um 16 22 09" src="https://github.com/emmablvy/FEM11213---Data-Science-and-HR-Analytics/assets/149567541/be08eac3-a983-4ad4-a240-3ecbd47a813d">
 
-
+- Lasso Regression results in a little bit of Bias but with less variance than in least squares.
+- Lasso makes prediction of size less sensitive
+- Lasso can be applied to complicated models that combine different types of data.
+- LASSO does not choose the model for you, in other words. Instead, it gives you a set of candidate models to choose from.
 
 
 
